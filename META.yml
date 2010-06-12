@@ -3,20 +3,25 @@ abstract: 'simple POP3S wrapper for Net::POP3'
 author:
   - 'tokuhirom <tokuhirom@gmail.com>'
 build_requires:
-  Test::More: 0
+  ExtUtils::MakeMaker: 6.42
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.75'
+generated_by: 'Module::Install version 0.99'
 license: perl
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
 name: Net-POP3-SSLWrapper
 no_index:
   directory:
     - inc
     - t
+    - xt
 requires:
   IO::Socket::SSL: 0
   Net::Cmd: 0
   Net::POP3: 0
-version: 0.02
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.03

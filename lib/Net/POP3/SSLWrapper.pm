@@ -4,8 +4,10 @@ use warnings;
 use base qw/Net::Cmd IO::Socket::SSL Exporter/;
 use Net::POP3;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 our @EXPORT = 'pop3s';
+
+my @instances;
 
 sub pop3s(&) { ## no critic.
     my $code = shift;
@@ -13,6 +15,8 @@ sub pop3s(&) { ## no critic.
     local @Net::POP3::ISA = __PACKAGE__;
 
     $code->();
+
+    undef $_ for @instances;
 }
 
 sub new {
@@ -20,6 +24,7 @@ sub new {
 
     my $self = $class->SUPER::new(@_);
     $self->blocking(0); # XXX why need this?
+    push @instances, $self;
     return $self;
 }
 
