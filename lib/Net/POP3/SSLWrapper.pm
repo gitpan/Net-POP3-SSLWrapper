@@ -2,9 +2,10 @@ package Net::POP3::SSLWrapper;
 use strict;
 use warnings;
 use base qw/Net::Cmd IO::Socket::SSL Exporter/;
+use 5.008001;
 use Net::POP3;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 our @EXPORT = 'pop3s';
 
 my @instances;
@@ -23,6 +24,7 @@ sub new {
     my $class = shift;
 
     my $self = $class->SUPER::new(@_);
+    return if !$self;
     $self->blocking(0); # XXX why need this?
     push @instances, $self;
     return $self;

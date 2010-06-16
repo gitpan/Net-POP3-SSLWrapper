@@ -22,6 +22,7 @@ requires:
   IO::Socket::SSL: 0
   Net::Cmd: 0
   Net::POP3: 0
+  perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04
